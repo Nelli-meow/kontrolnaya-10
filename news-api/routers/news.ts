@@ -15,22 +15,33 @@ newsRouter.get("/", async (req, res) => {
 });
 
 newsRouter.get("/:id", async (req, res) => {
+    const { id } = req.params;
 
+    try {
+        const oneNew = await fileDb.getNewsById(id);
+        if(oneNew) {
+            res.status(200).send(oneNew);
+        } else {
+            res.status(404).send('Not Found');
+        }
+    } catch (e) {
+        res.status(500).send('Error');
+    }
 });
 
 
 newsRouter.post("/", imagesUpload.single('image'), async (req, res) => {
     try {
-        const { title, description } = req.body;
+        const { title, content } = req.body;
 
-        if(!title || !description) {
-            res.status(400).send('Please enter a title and description');
+        if(!title || !content) {
+            res.status(400).send('Please enter a title and content');
             return;
         }
 
         const newNews: NewWithoutId = {
             title: req.body.title,
-            description: req.body.description,
+            content: req.body.content,
             image: req.file ? 'image' + req.file.filename : null,
             date: req.body.date,
         };

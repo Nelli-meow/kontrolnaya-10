@@ -1,7 +1,7 @@
 export interface INews {
     id: string;
     title: string;
-    description: string;
+    content: string;
     image: string | null
     date: string;
 }
@@ -20,7 +20,7 @@ export interface NewsAndMessageContext {
 
 export interface NewWithoutId {
     title: string;
-    description: string;
+    content: string;
     image: string | null
     date: string;
 }

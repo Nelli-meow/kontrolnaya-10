@@ -45,6 +45,10 @@ const fileDb = {
         return newNew;
     },
 
+    async getNewsById(id: string) {
+        return data.news.find(oneNew => oneNew.id === id);
+    },
+
     async save() {
         return await fs.writeFile(fileName, JSON.stringify(data));
     }
