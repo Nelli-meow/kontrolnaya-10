@@ -15,12 +15,13 @@ export interface INewsMutation {
 
 export interface IComments {
   id: string;
-  newsId: INews[];
+  newsId: string;
   author: string;
   comment: string;
 }
 
 export interface ICommentsMutation {
   author: string;
+  newsId: string;
   comment: string;
 }

@@ -15,7 +15,6 @@ interface Props {
 const NewsItem: React.FC<Props> = ({title, date , image = NoPic, id, onDelete}) => {
   const imageSrc = image ? `${apiURL}/${image}` : NoPic;
 
-
   return (
     <div className="border border-2 rounded p-5 my-5 d-flex justify-content-sm-between align-items-center">
       <img src={imageSrc} alt="image" className="img-thumbnail w-25" />

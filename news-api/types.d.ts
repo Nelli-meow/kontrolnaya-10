@@ -6,21 +6,22 @@ export interface INews {
     date: string;
 }
 
-export interface IComments {
-    id: string;
-    newsId: string;
-    author: string;
-    text: string;
-}
-
-export interface NewsAndCommentsContext {
-    news: INews[],
-    messages: IComments[],
-}
-
 export interface NewWithoutId {
     title: string;
     content: string;
     image: string | null
     date: string;
+}
+
+export interface IComments {
+    id: string;
+    newsId: string;
+    author: string;
+    comment: string;
+}
+
+export interface CommentWithoutId {
+    newsId: string;
+    author: string;
+    comment: string;
 }

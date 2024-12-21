@@ -5,6 +5,7 @@ import { fetchNewsByIdThunk } from '../../features/news/newsThunk.ts';
 import Header from '../../components/Header/Header.tsx';
 import { apiURL } from '../../globalConstants.ts';
 import CommentsForm from '../../components/CommentsForm/CommentsForm.tsx';
+import CommentItem from '../../features/comments/components/CommentItem/CommentItem.tsx';
 
 
 const NewsInfo = () => {
@@ -42,6 +43,7 @@ const NewsInfo = () => {
       <hr />
       <div className="mt-5 container">
         <h2>Comments</h2>
+        <CommentItem/>
         <hr />
         <div>
           <CommentsForm/>

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { messagesReducer } from '../features/news/newsSlice.ts';
+import { commentsReducer } from '../features/comments/commentsSlice.ts';
 
 
 export const store = configureStore({
   reducer: {
     newsPosts: messagesReducer,
+    comments: commentsReducer,
   }
 });
 

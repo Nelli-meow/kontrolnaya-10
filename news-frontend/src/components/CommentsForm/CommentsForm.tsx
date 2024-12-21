@@ -3,11 +3,10 @@ import { useCallback, useState } from 'react';
 import { ICommentsMutation } from '../../types';
 
 
-
-
 const initialState = {
   author: '',
   comment: '',
+  newsId: '',
 };
 
 const CommentsForm: React.FC = () => {
@@ -48,7 +47,7 @@ const CommentsForm: React.FC = () => {
             onChange={inputChangeHandler}
             type="text"
             className="form-control"
-            placeholder="author*"
+            placeholder="author"
             aria-label="Example text with button addon"
             aria-describedby="button-addon1"/>
         </div>
