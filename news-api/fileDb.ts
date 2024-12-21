@@ -49,6 +49,16 @@ const fileDb = {
         return data.news.find(oneNew => oneNew.id === id);
     },
 
+    async deleteNews(id: string) {
+        const index = data.news.findIndex(oneNews => oneNews.id === id);
+        if (index !== -1) {
+            data.news.splice(index, 1);
+            await this.save();
+            return true;
+        }
+        return false;
+    },
+
     async save() {
         return await fs.writeFile(fileName, JSON.stringify(data));
     }

@@ -30,3 +30,14 @@ export const addNewsThunk = createAsyncThunk<void, INewsMutation>(
     await axiosApi.post('/news', formData);
   }
 );
+
+export const deleteNewsThunk = createAsyncThunk(
+  'news/deleteNewsThunk',
+  async (id: string) => {
+    try {
+      await axiosApi.delete(`/news/${id}`);
+    } catch (error) {
+      return ('Error');
+    }
+  }
+);

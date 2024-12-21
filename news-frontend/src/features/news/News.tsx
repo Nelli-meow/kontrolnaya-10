@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks.ts';
-import { fetchNewsThunk } from './newsThunk.ts';
+import { deleteNewsThunk, fetchNewsThunk } from './newsThunk.ts';
 import { selectNewsItems } from './newsSlice.ts';
 import NewsItem from './components/NewItem/NewsItem.tsx';
 import { INews } from '../../types';
@@ -18,11 +18,15 @@ const News = () => {
     dispatch(fetchNewsThunk());
   }, [dispatch]);
 
+  const onDelete = (id: string) => {
+    dispatch(deleteNewsThunk(id));
+  };
+
   return (
     <div className="container">
       <div className="d-flex justify-content-sm-between align-items-center">
         <h3 className="my-5">Posts</h3>
-        <Link to="add-news" className="btn btn-outline-primary">Add new post</Link>
+        <Link to="/news/add-news" className="btn btn-outline-primary">Add new post</Link>
       </div>
       <hr/>
       <>
@@ -34,6 +38,7 @@ const News = () => {
               date={oneNew.date}
               id={oneNew.id}
               image={oneNew.image}
+              onDelete={onDelete}
             />
           )
         ) : (

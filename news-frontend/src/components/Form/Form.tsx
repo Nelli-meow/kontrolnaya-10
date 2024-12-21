@@ -5,13 +5,14 @@ import FileInput from '../FileInput/FileInput.tsx';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
-  onSubmit: (message: INewsMutation) => void;
+  onSubmit: (news: INewsMutation) => void;
 }
 
 const initialState = {
   title: '',
   content: '',
   image: null,
+  date: '',
 };
 
 const Form: React.FC<Props> = ({onSubmit}) => {

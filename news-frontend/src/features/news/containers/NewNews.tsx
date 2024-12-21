@@ -3,6 +3,7 @@ import Form from '../../../components/Form/Form.tsx';
 import { INewsMutation} from '../../../types';
 import { useAppDispatch } from '../../../app/hooks.ts';
 import { addNewsThunk } from '../newsThunk.ts';
+import Header from '../../../components/Header/Header.tsx';
 
 
 const NewMessage = () => {
@@ -14,6 +15,7 @@ const NewMessage = () => {
 
   return (
     <>
+      <Header/>
       <Form onSubmit={onSubmit}/>
     </>
   );

@@ -53,7 +53,21 @@ newsRouter.post("/", imagesUpload.single('image'), async (req, res) => {
     } catch (e) {
         res.status(500).send('Error');
     }
-})
+});
+
+newsRouter.delete("/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await fileDb.deleteNews(id);
+        if (result) {
+            res.status(200).send({ message: "News deleted" });
+        } else {
+            res.status(404).send("News not found");
+        }
+    } catch (e) {
+        res.status(500).send('Error');
+    }
+});
 
 
 export default newsRouter;
