@@ -1,9 +1,9 @@
 import {promises as fs} from 'fs';
 import crypto from 'node:crypto';
-import {NewsAndMessageContext, NewWithoutId} from "./types";
+import {NewsAndCommentsContext, NewWithoutId} from "./types";
 
 const fileName = './db.json';
-let data: NewsAndMessageContext = {
+let data: NewsAndCommentsContext = {
     news: [],
     messages: [],
 };

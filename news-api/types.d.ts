@@ -6,16 +6,16 @@ export interface INews {
     date: string;
 }
 
-export interface IMessage {
+export interface IComments {
     id: string;
     newsId: string;
     author: string;
     text: string;
 }
 
-export interface NewsAndMessageContext {
+export interface NewsAndCommentsContext {
     news: INews[],
-    messages: IMessage[],
+    messages: IComments[],
 }
 
 export interface NewWithoutId {

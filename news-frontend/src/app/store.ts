@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { messagesReducer } from '../features/book-messages/messagesSlice.ts';
+import { messagesReducer } from '../features/news/newsSlice.ts';
 
 
 export const store = configureStore({
   reducer: {
-    bookMessages: messagesReducer,
+    news: messagesReducer,
   }
 });
 
