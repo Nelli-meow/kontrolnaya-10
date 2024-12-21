@@ -41,3 +41,12 @@ export const deleteNewsThunk = createAsyncThunk(
     }
   }
 );
+
+export const getNewMessages = createAsyncThunk<INews[], string>(
+  'news/getNewMessages',
+  async (date) => {
+    const newsResponse = await axiosApi<INews[]>(`/news?datetime=${date}`);
+
+    return newsResponse.data;
+  }
+)

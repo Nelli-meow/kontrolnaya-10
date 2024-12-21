@@ -27,19 +27,13 @@ const Form: React.FC<Props> = ({onSubmit}) => {
       return;
     }
 
-    if(!oneNews.image === null) {
-
-    }
-
-    const messageToSubmit = {
-      ...oneNews,
-    };
-
-    onSubmit(messageToSubmit);
+    onSubmit({...oneNews});
 
     console.log(oneNews);
-    navigate('/news')
+
+    console.log(oneNews);
     setOneNews(initialState);
+    navigate('/news');
   };
 
   const inputChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

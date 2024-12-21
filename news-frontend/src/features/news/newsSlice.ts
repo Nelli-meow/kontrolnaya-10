@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addNewsThunk, deleteNewsThunk, fetchNewsThunk } from './newsThunk.ts';
 import { RootState } from '../../app/store.ts';
+import { INews } from '../../types';
 
 
 interface INewsInitialState {
-  newsItems: [];
+  newsItems: INews[];
   fetchingNews: boolean;
   createNews: boolean;
   deleteNews:  boolean;
@@ -17,8 +18,8 @@ const initialState: INewsInitialState = {
   deleteNews: false,
 }
 
-export const selectNewsItems = (state: RootState) => state.news.newsItems;
-export const selectNewsLoading = (state: RootState) => state.news.fetchingNews;
+export const selectNewsItems = (state: RootState) => state.newsPosts.newsItems;
+export const selectNewsLoading = (state: RootState) => state.newsPosts.fetchingNews;
 
 export const messagesSlice = createSlice({
   name: 'news',

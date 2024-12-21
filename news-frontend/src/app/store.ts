@@ -4,7 +4,7 @@ import { messagesReducer } from '../features/news/newsSlice.ts';
 
 export const store = configureStore({
   reducer: {
-    news: messagesReducer,
+    newsPosts: messagesReducer,
   }
 });
 

@@ -8,7 +8,10 @@ const newsRouter = express.Router();
 newsRouter.get("/", async (req, res) => {
     try {
         const news = await fileDb.getNews();
-        res.status(200).send({news});
+
+        console.log(news);
+
+        res.status(200).send(news);
     } catch (e) {
         res.status(500).send('Error');
     }

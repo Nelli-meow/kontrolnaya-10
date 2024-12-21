@@ -14,6 +14,6 @@ export interface INewsMutation {
 }
 
 export interface NewsAndCommentsContext {
-  news: INews[],
-  messages: IComments[],
+  news: {},
+  messages: {},
 }

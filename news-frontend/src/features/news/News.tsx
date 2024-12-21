@@ -1,26 +1,33 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks.ts';
-import { deleteNewsThunk, fetchNewsThunk } from './newsThunk.ts';
+import { deleteNewsThunk, fetchNewsThunk, getNewMessages } from './newsThunk.ts';
 import { selectNewsItems } from './newsSlice.ts';
 import NewsItem from './components/NewItem/NewsItem.tsx';
-import { INews } from '../../types';
 import { Link } from 'react-router-dom';
 
 const News = () => {
   const dispatch = useAppDispatch();
   const newsData = useAppSelector(selectNewsItems);
 
-  const news: INews[] = newsData.news || [];
+  const reversedNews = [...newsData].reverse();
 
-  const reversedNews = [...news].reverse();
-
-  useEffect(() => {
-    dispatch(fetchNewsThunk());
-  }, [dispatch]);
+  const getData = useCallback((lastDate: string | null) => {
+    if(lastDate === null) {
+      dispatch(fetchNewsThunk());
+    } else {
+      dispatch(getNewMessages(lastDate));
+    }
+  },[dispatch]);
 
   const onDelete = (id: string) => {
     dispatch(deleteNewsThunk(id));
   };
+
+  useEffect(() => {
+     getData(null);
+
+  }, [getData]);
+
 
   return (
     <div className="container">
