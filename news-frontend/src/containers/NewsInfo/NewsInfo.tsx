@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks.ts';
 import { fetchNewsByIdThunk } from '../../features/news/newsThunk.ts';
 import Header from '../../components/Header/Header.tsx';
 import { apiURL } from '../../globalConstants.ts';
+import CommentsForm from '../../components/CommentsForm/CommentsForm.tsx';
 
 
 const NewsInfo = () => {
@@ -43,7 +44,7 @@ const NewsInfo = () => {
         <h2>Comments</h2>
         <hr />
         <div>
-
+          <CommentsForm/>
         </div>
       </div>
     </>

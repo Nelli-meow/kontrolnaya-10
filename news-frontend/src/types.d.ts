@@ -13,7 +13,14 @@ export interface INewsMutation {
   date: string;
 }
 
-export interface NewsAndCommentsContext {
-  news: {},
-  messages: {},
+export interface IComments {
+  id: string;
+  newsId: INews[];
+  author: string;
+  comment: string;
+}
+
+export interface ICommentsMutation {
+  author: string;
+  comment: string;
 }
