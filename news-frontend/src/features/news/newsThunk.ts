@@ -49,4 +49,16 @@ export const getNewMessages = createAsyncThunk<INews[], string>(
 
     return newsResponse.data;
   }
-)
+);
+
+export const fetchNewsByIdThunk = createAsyncThunk(
+  'news/fetchNewsById',
+  async (id: string) => {
+    try {
+      const response = await axiosApi(`/news/${id}`);
+      return response.data;
+    } catch (error) {
+      return('Error fetching news by ID');
+    }
+  }
+);
