@@ -6,7 +6,8 @@ export interface INews {
   date: string;
 }
 
-export interface INewsAndComments {
-  news: INews;
-  comments: IComment;
+export interface INewsMutation {
+  title: string;
+  content: string;
+  image: string | null
 }

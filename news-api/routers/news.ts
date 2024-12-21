@@ -42,7 +42,7 @@ newsRouter.post("/", imagesUpload.single('image'), async (req, res) => {
         const newNews: NewWithoutId = {
             title: req.body.title,
             content: req.body.content,
-            image: req.file ? 'image' + req.file.filename : null,
+            image: req.file ? 'images/' + req.file.filename : null,
             date: req.body.date,
         };
 
